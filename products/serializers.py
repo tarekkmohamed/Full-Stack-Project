@@ -93,8 +93,8 @@ class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'title', 'price', 'discounted_price', 'is_discount_active',
-                 'category_name', 'brand_name', 'primary_image', 'average_rating',
-                 'review_count', 'is_featured', 'created_at']
+                 'stock_quantity', 'category_name', 'brand_name', 'primary_image', 
+                 'average_rating', 'review_count', 'is_featured', 'created_at']
     
     def get_primary_image(self, obj):
         """Get primary product image"""
