@@ -231,7 +231,7 @@ const ProductDetail = () => {
                   </span>
                   {(product.stock_quantity ?? 0) > 0 && (
                     <span className="text-sm text-gray-500 ml-2">
-                      ({product.stock_quantity} available)
+                      ({product.stock_quantity ?? 0} available)
                     </span>
                   )}
                 </div>
