@@ -225,13 +225,13 @@ const ProductDetail = () => {
                 {/* Stock Status */}
                 <div className="mb-4">
                   <span className={`text-sm font-medium ${
-                    product.stock_quantity > 0 ? 'text-green-600' : 'text-red-600'
+                    (product.stock_quantity ?? 0) > 0 ? 'text-green-600' : 'text-red-600'
                   }`}>
-                    {product.stock_quantity > 0 ? 'In Stock' : 'Out of Stock'}
+                    {(product.stock_quantity ?? 0) > 0 ? 'In Stock' : 'Out of Stock'}
                   </span>
-                  {product.stock_quantity > 0 && (
+                  {(product.stock_quantity ?? 0) > 0 && (
                     <span className="text-sm text-gray-500 ml-2">
-                      ({product.stock_quantity} available)
+                      ({product.stock_quantity ?? 0} available)
                     </span>
                   )}
                 </div>
@@ -265,7 +265,7 @@ const ProductDetail = () => {
                     </button>
                     <span className="px-4 py-2 border-x border-gray-300">{quantity}</span>
                     <button
-                      onClick={() => setQuantity(Math.min(product.stock_quantity, quantity + 1))}
+                      onClick={() => setQuantity(Math.min(product.stock_quantity ?? 0, quantity + 1))}
                       className="px-3 py-2 hover:bg-gray-100"
                     >
                       +
@@ -276,7 +276,7 @@ const ProductDetail = () => {
                 <div className="flex space-x-4">
                   <button
                     onClick={handleAddToCart}
-                    disabled={product.stock_quantity === 0}
+                    disabled={(product.stock_quantity ?? 0) === 0}
                     className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                   >
                     <FaShoppingCart />

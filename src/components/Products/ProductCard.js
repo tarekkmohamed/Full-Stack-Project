@@ -138,8 +138,8 @@ const ProductCard = ({ product }) => {
           </div>
 
           <div className="text-sm text-gray-500">
-            <span className="text-green-600 font-medium">
-              {product.stock_quantity > 0 ? 'In Stock' : 'Out of Stock'}
+            <span className={`font-medium ${(product.stock_quantity ?? 0) > 0 ? 'text-green-600' : 'text-red-600'}`}>
+              {(product.stock_quantity ?? 0) > 0 ? 'In Stock' : 'Out of Stock'}
             </span>
           </div>
         </div>
